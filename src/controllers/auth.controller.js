@@ -69,7 +69,6 @@ const login = async (req, res) => {
             });
         }
 
-        // 🔥 IMPORTANTE: usar datos reales de Mongo directamente
         const role = user.role || "customer";
 
         let sessionUser;
@@ -86,7 +85,6 @@ const login = async (req, res) => {
                 return res.redirect("/auth/login");
             }
 
-            // 🔥 FIX CLAVE: usar datos directos + fallback seguro
             req.session.user = {
                 username: user.username || sessionUser.getUsername(),
                 email: user.email,
