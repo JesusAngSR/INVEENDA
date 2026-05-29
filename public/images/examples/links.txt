@@ -5,3 +5,10 @@ PC EXTREME: https://m.media-amazon.com/images/I/51bRXKzh3rL.jpg
 Monitor ASUS ROG STRIX: https://dlcdnwebimgs.asus.com/gain/4C4CBFF8-2B2B-45D3-8657-F6EDB96509AC/w717/h525/fwebp
 
 Mouse Logitech G502 X PLUS: https://http2.mlstatic.com/D_Q_NP_910872-MLA99454762090_112025-O.webp
+
+-- RUTAS --
+
+/images/examples/imgs/product-1.jpg
+/images/examples/imgs/product-2.jpg
+/images/examples/imgs/product-3.jpg
+/images/examples/imgs/product-4.jpg
