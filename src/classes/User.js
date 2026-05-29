@@ -1,42 +1,46 @@
-class User{
+class User {
     #username;
     #email;
     #password;
     #role;
 
-    constructor(data){
+    constructor(data) {
         this.#username = data.username;
         this.#email = data.email;
         this.#password = data.password;
         this.#role = data.role || "customer";
     }
 
-    getUsername(){
+    getUsername() {
         return this.#username;
     }
 
-    getEmail(){
+    getEmail() {
         return this.#email;
     }
 
-    getRole(){
+    getPassword() {
+        return this.#password;
+    }
+
+    getRole() {
         return this.#role;
     }
 
-    isAdmin(){
+    isAdmin() {
         return this.#role === "admin";
     }
 
-    isCustomer(){
+    isCustomer() {
         return this.#role === "customer";
     }
 
-    toDatabase(){
+    toDatabase() {
         return {
-            username:this.#username,
-            email:this.#email,
-            password:this.#password,
-            role:this.#role
+            username: this.#username,
+            email: this.#email,
+            password: this.#password,
+            role: this.#role
         };
     }
 }

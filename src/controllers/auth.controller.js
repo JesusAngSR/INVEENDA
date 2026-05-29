@@ -1,7 +1,8 @@
-const User = require("../classes/User");
-
 const userRepository = require("../repository/user.repository");
 const authService = require("../services/auth.service");
+
+const Admin = require("../classes/Admin");
+const Customer = require("../classes/Customer");
 
 const loginView = (req, res) => {
     res.render("auth/login");
@@ -14,6 +15,7 @@ const registerView = (req, res) => {
 const register = async (req, res) => {
     try {
         const { username, email, password } = req.body;
+
         const existingUser = await userRepository.findByEmail(email);
 
         if (existingUser) {
@@ -22,13 +24,14 @@ const register = async (req, res) => {
 
         const hashedPassword = await authService.hashPassword(password);
 
-        const userEntity = new User({
+        const userEntity = new Customer({
             username,
             email,
             password: hashedPassword
         });
 
         await userRepository.create(userEntity.toDatabase());
+
         res.redirect("/auth/login");
 
     } catch (error) {
@@ -55,7 +58,10 @@ const login = async (req, res) => {
             });
         }
 
-        const validPassword = await authService.comparePassword(password, user.password);
+        const validPassword = await authService.comparePassword(
+            password,
+            user.password
+        );
 
         if (!validPassword) {
             return res.status(401).render("auth/login", {
@@ -63,14 +69,34 @@ const login = async (req, res) => {
             });
         }
 
-        req.session.user = {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-            role: user.role
-        };
+        // 🔥 IMPORTANTE: usar datos reales de Mongo directamente
+        const role = user.role || "customer";
 
-        res.redirect("/");
+        let sessionUser;
+
+        if (role === "admin") {
+            sessionUser = new Admin(user);
+        } else {
+            sessionUser = new Customer(user);
+        }
+
+        req.session.regenerate((err) => {
+            if (err) {
+                console.log(err);
+                return res.redirect("/auth/login");
+            }
+
+            // 🔥 FIX CLAVE: usar datos directos + fallback seguro
+            req.session.user = {
+                username: user.username || sessionUser.getUsername(),
+                email: user.email,
+                role: role
+            };
+
+            req.session.save(() => {
+                res.redirect("/");
+            });
+        });
 
     } catch (error) {
         console.log(error);
