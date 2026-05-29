@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta</title>
+
+    <link rel="stylesheet" href="/stylesheets/includes/header.css">
+    <link rel="stylesheet" href="/stylesheets/pages/account.css">
+</head>
+<body>
+    <%- include("includes/header.ejs") %>
+    <main class="account">
+        <div class="account-card">
+            <h1>Informacion de la Cuenta</h1>
+            <div class="account-info">
+                <p><span>Usuario:</span><%= user.username %></p>
+                <p><span>Email:</span><%= user.email %></p>
+                <p><span>Rol:</span><%= user.role %></p>
+            </div>
+
+            <div class="account-actions">
+                <% if(user.role === "admin"){ %>
+                    <a href="/dashboard" class="btn">Ir al Dashboard</a>
+                <% } %>
+                <a href="/auth/logout" class="btn danger">Cerrar sesión</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

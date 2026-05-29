@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Producto</title>
+
+    <link rel="stylesheet" href="/stylesheets/includes/header.css">
+
+    <link rel="stylesheet" href="/stylesheets/pages/form.css">
+</head>
+<body>
+    <%- include("../includes/header.ejs") %>
+    <main class="form">
+        <h1 class="form-title">Crear producto</h1>
+
+        <form action="/dashboard/create" method="POST">
+            <input name="name" placeholder="Nombre" required>
+
+            <input name="price" type="number" placeholder="Precio" required>
+
+            <input name="stock" type="number" placeholder="Stock">
+
+            <textarea name="description" placeholder="Descripción"></textarea>
+
+            <input name="image" placeholder="URL imagen">
+            
+            <button type="submit">Guardar</button>
+        </form>
+    </main>
+</body>
+</html>

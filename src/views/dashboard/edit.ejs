@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+
+    <link rel="stylesheet" href="/stylesheets/includes/header.css">
+
+    <link rel="stylesheet" href="/stylesheets/pages/form.css">
+</head>
+<body>
+    <%- include("../includes/header.ejs") %>
+    <main class="form">
+        <h1 class="form-title">Editar producto</h1>
+
+        <form action="/dashboard/edit/<%= product._id %>" method="POST">
+            <input name="name" value="<%= product.name %>">
+
+            <input name="price" type="number" value="<%= product.price %>">
+
+            <input name="stock" type="number" value="<%= product.stock %>">
+
+            <textarea name="description"><%= product.description %></textarea>
+
+            <input name="image" value="<%= product.image %>">
+
+            <button type="submit">Actualizar</button>
+        </form>
+        <a href="/dashboard/delete/<%= product._id %>" class="delete-btn">Eliminar producto</a>
+    </main>
+</body>
+</html>

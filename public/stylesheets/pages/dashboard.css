@@ -1,0 +1,138 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:system-ui, sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    color:white;
+}
+
+/* CONTENEDOR */
+main.dashboard{
+    padding:50px 10%;
+}
+
+/* TITULO */
+.dashboard h1{
+    font-size:34px;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+/* BOTÓN AGREGAR */
+.add-btn{
+    display:inline-block;
+    margin-bottom:18px;
+    padding:10px 14px;
+    border-radius:12px;
+    background:rgba(34,197,94,.18);
+    border:1px solid rgba(34,197,94,.35);
+    color:#86efac;
+    text-decoration:none;
+    font-weight:500;
+    transition:.2s;
+}
+
+.add-btn:hover{
+    background:rgba(34,197,94,.28);
+    transform:translateY(-1px);
+}
+
+/* TABLA */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+    overflow:hidden;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+/* HEADER */
+thead{
+    background:rgba(255,255,255,.08);
+}
+
+/* CELDAS */
+th,
+td{
+    padding:16px;
+    text-align:center;
+    vertical-align:middle;
+    color:#e2e8f0;
+}
+
+th{
+    font-weight:600;
+    color:white;
+}
+
+/* FILAS */
+tbody tr{
+    transition:.2s;
+}
+
+tbody tr:hover{
+    background:rgba(255,255,255,.05);
+}
+
+/* IMAGEN */
+img{
+    width:48px;
+    height:48px;
+    object-fit:cover;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+/* ACCIONES */
+td.actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    white-space:nowrap;
+}
+
+/* BOTONES ACCIONES */
+a.edit-btn,
+a.delete-btn{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:10px;
+    font-size:13px;
+    text-decoration:none;
+    transition:.2s;
+    white-space:nowrap;
+}
+
+/* EDITAR */
+a.edit-btn{
+    background:rgba(37,99,235,.18);
+    border:1px solid rgba(37,99,235,.35);
+    color:#93c5fd;
+}
+
+a.edit-btn:hover{
+    background:rgba(37,99,235,.28);
+    transform:translateY(-1px);
+}
+
+/* ELIMINAR */
+a.delete-btn{
+    background:rgba(239,68,68,.15);
+    border:1px solid rgba(239,68,68,.3);
+    color:#fecaca;
+}
+
+a.delete-btn:hover{
+    background:rgba(239,68,68,.25);
+    transform:translateY(-1px);
+}

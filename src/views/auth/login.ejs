@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inveenda - Inicio de Sesion</title>
+
+    <link rel="stylesheet" href="/stylesheets/includes/header.css">
+
+    <link rel="stylesheet" href="/stylesheets/pages/login.css">
+</head>
+<body>
+    <%- include("../includes/header.ejs") %>
+    <main>
+        <div class="login-container">
+            <div class="login-card">
+                <h1>Bienvenido</h1>
+                <p class="subtitle">Inicia sesión para continuar</p>
+
+                <% if(typeof error !== "undefined"){ %>
+                    <div class="error-box">
+                        <%= error %>
+                    </div>
+                <% } %>
+                
+                <form action="/auth/login" method="POST">
+                    <input type="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+
+                    <input type="password" name="password" placeholder="Contraseña" autocomplete="current-password" required>
+
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+
+                <p class="switch">¿No tienes cuenta?<a class="switch-hover" href="/auth/register">Registrarse</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

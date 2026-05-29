@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inveenda - Registro</title>
+
+    <link rel="stylesheet" href="/stylesheets/includes/header.css">
+
+    <link rel="stylesheet" href="/stylesheets/pages/register.css">
+</head>
+<body>
+    <%- include("../includes/header.ejs") %>
+    <main>
+        <div class="register-container">
+            <div class="register-card">
+                <h1>Empecemos</h1>
+                <p class="subtitle">Crea una cuenta para comenzar</p>
+
+                <form action="/auth/register" method="POST">
+                    <input type="text" name="username" placeholder="Nombre de usuario" autocomplete="username" required>
+
+                    <input type="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+
+                    <input type="password" name="password" placeholder="Contraseña" autocomplete="new-password" required>
+
+                    <button type="submit">Crear cuenta</button>
+                </form>
+
+                <p class="switch">¿Ya tienes cuenta?<a class="switch-hover" href="/auth/login">Login</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+ 
